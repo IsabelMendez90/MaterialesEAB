@@ -3,8 +3,8 @@ import pandas as pd
 from openai import OpenAI
 import os
 
-st.set_page_config(page_title="Ficha Técnica de Materiales", layout="wide")
-st.title("📄 Ficha Técnica de Materiales de Construcción con apoyo de Mentor AI para AR2007B.545")
+st.set_page_config(page_title="Materiales de Construcción - LadybugTools", layout="wide")
+st.title("📄 Búsqueda de Materiales de Construcción con apoyo de Mentor AI para EAB2025")
 st.markdown("Creadora: Dra. J. Isabel Méndez Garduño")
 
 # Cargar base de datos
@@ -79,8 +79,8 @@ Proporciona valores numéricos realistas cuando sea posible. Usa formato claro y
                     {
                         "role": "system",
                         "content": (
-                            "Eres un arquitecto experto en materiales, sostenibilidad y diseño accesible en México. "
-                            "Hablas en un lenguaje técnico y directo para estudiantes y profesionales de arquitectura."
+                            "Eres un arquitecto experto en materiales, sostenibilidad y diseño accesible en México, pero también puede ser en Latinoamérica, como Costa Rica. "
+                            "Hablas en un lenguaje técnico y directo para estudiantes y profesionales de arquitectura enfocados en especialidad en Arquitectura Bioclimática."
                         )
                     },
                     {"role": "user", "content": prompt}
@@ -92,7 +92,7 @@ Proporciona valores numéricos realistas cuando sea posible. Usa formato claro y
                         "X-Title": "Ficha Tecnica AI"
                     },
                     extra_body={},
-                    model="deepseek/deepseek-chat-v3-0324:free",
+                    model="mistralai/mistral-7b-instruct:free",
                     messages=messages
                 )
 
@@ -146,14 +146,14 @@ Genera una ficha técnica completa y detallada del siguiente material de constru
    - Cuidados y mantenimiento
    - Compatibilidad con climas cálidos/húmedos
 
-Proporciona valores numéricos realistas cuando sea posible. Usa formato claro y estructurado, sin hacer preguntas al usuario.
+Proporciona valores numéricos realistas. Usa formato claro y estructurado, sin hacer preguntas al usuario.
 """
 
             messages = [
                 {
                     "role": "system",
                     "content": (
-                        "Eres un arquitecto experto en materiales, sostenibilidad y diseño accesible en México. "
+                        "Eres un arquitecto experto en materiales, sostenibilidad y diseño accesible en México y Latinoamérica como COsta Rica. "
                         "Hablas en un lenguaje técnico y directo para estudiantes y profesionales de arquitectura."
                     )
                 },
@@ -166,7 +166,7 @@ Proporciona valores numéricos realistas cuando sea posible. Usa formato claro y
                     "X-Title": "Ficha Tecnica AI"
                 },
                 extra_body={},
-                model="deepseek/deepseek-chat-v3-0324:free",
+                model="mistralai/mistral-7b-instruct:free",
                 messages=messages
             )
 
@@ -177,3 +177,4 @@ Proporciona valores numéricos realistas cuando sea posible. Usa formato claro y
 
         except Exception as e:
             st.warning(f"No se pudo conectar con el Mentor AI. Error: {e}")
+
